@@ -26,9 +26,6 @@ verb_phrase(Number, _, verb_phrase(V, ADV, NP)) --> transitive_verb(Number, V), 
 verb_phrase(Number, _, verb_phrase(V, ADV)) --> transitive_verb(Number, V), adverb(_, _, ADV).
 verb_phrase(Number, _, verb_phrase(V, ADV)) --> intransitive_verb(Number, V), adverb(_, _, ADV).
 
-% verb_phrase(Number, _, verb_phrase(V, NP, PP)) --> transitive_verb(Number, V), noun_phrase(_, _, NP), prepositional_phrase(_, _, PP).
-% verb_phrase(Number, _, verb_phrase(V, ADV, NP, PP)) --> transitive_verb(Number, V), adverb(_, _, ADV), noun_phrase(_, _, NP), prepositional_phrase(_, _, PP).
-
 determiner(singular, ma, determiner(il)) --> [il].
 determiner(singular, fem, determiner(la)) --> [la].
 determiner(plural, ma, determiner(i)) --> [i].
