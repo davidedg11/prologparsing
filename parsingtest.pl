@@ -5,10 +5,10 @@
 
 
 sentence(Number, Gender, sentence(NP, VP)) --> noun_phrase(Number, Gender, NP), verb_phrase(Number, Gender, VP).
-% sentence(Number, Gender, sentence(NP, CONJ, NP, VP)) --> noun_phrase(Number, Gender, NP), conjuction(_, _, CONJ), noun_phrase(singular, ma, NP), verb_phrase(plural, _, VP).
 sentence(Number, Gender, sentence(NP, PP, VP)) --> noun_phrase(Number, Gender, NP), prepositional_phrase(_, _, PP), verb_phrase(Number, Gender, VP).
 sentence(Number, Gender, sentence(NP, VP, PP)) --> noun_phrase(Number, Gender, NP), verb_phrase(Number, Gender, VP), prepositional_phrase(_, _, PP) .
 
+proper_noun_phrase(Number, Gender, noun_phrase(PN)) --> proper_noun(Number, Gender, PN).
 noun_phrase(Number, Gender, noun_phrase(DET, N)) --> determiner(Number, Gender, DET), noun(Number, Gender, N).
 noun_phrase(Number, Gender, noun_phrase(DET, N, REL)) --> determiner(Number, Gender, DET), noun(Number, Gender, N), relative_clause(Number, _, REL).
 
@@ -44,6 +44,8 @@ noun(plural, ma, noun(leoni)) --> [leoni].
 
 noun(singular, ma, noun(binocolo)) --> [binocolo].
 
+proper_noun(singular, _, proper_noun(’Jenny’)) --> [’Jenny’].
+
 adjective(singular, ma, adjective(biondo)) --> [biondo].
 adjective(singular, fem, adjective(bionda)) --> [bionda].
 adjective(plural, ma, adjective(biondi)) --> [biondi].
@@ -62,8 +64,6 @@ adverb(_, _, adverb(attentamente)) --> [attentamente].
 relative_pronoun(_, _, relative_pronoun(che)) --> [che].
 
 preposition(_, _, preposition(con)) --> [con].
-
-% conjuction(_, _,conjuction(e)) --> [e].
 
 transitive_verb(singular, transitive_verb(osserva)) --> [osserva].
 transitive_verb(plural, transitive_verb(osservano)) --> [osservano].
